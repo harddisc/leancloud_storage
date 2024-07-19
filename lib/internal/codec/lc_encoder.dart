@@ -45,7 +45,7 @@ class _LCEncoder {
     return {'__type': 'Bytes', 'base64': base64Encode(bytes)};
   }
 
-  static dynamic encodeList(List list, {bool full: false}) {
+  static dynamic encodeList(List list, {bool full = false}) {
     List l = [];
     list.forEach((item) {
       l.add(encode(item, full: full));
@@ -53,7 +53,7 @@ class _LCEncoder {
     return l;
   }
 
-  static dynamic encodeMap(Map map, {bool full: false}) {
+  static dynamic encodeMap(Map map, {bool full = false}) {
     Map m = new Map();
     map.forEach((key, value) {
       m[key] = encode(value, full: full);
@@ -61,7 +61,7 @@ class _LCEncoder {
     return m;
   }
 
-  static dynamic encodeLCObject(LCObject object, {bool full: false}) {
+  static dynamic encodeLCObject(LCObject object, {bool full = false}) {
     Map<String, dynamic> data = {
       '__type': 'Pointer',
       'className': object.className,
